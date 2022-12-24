@@ -23,7 +23,19 @@ class _ChatInfoScreenState extends State<ChatInfoScreen> {
     showDialog(
         context: context,
         builder: (_) => AlertDialog(
-              title: Text("Ara"),
+              title: Row(
+                children: [
+                  Icon(
+                    Icons.phone_callback_outlined,
+                    color: Colors.black,
+                    size: 20,
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  Text("Ara"),
+                ],
+              ),
             ));
   }
 
@@ -32,7 +44,19 @@ class _ChatInfoScreenState extends State<ChatInfoScreen> {
     showDialog(
         context: context,
         builder: (_) => AlertDialog(
-              title: Text("Görüntülü Ara"),
+              title: Row(
+                children: [
+                  Icon(
+                    Icons.video_camera_back_outlined,
+                    color: Colors.black,
+                    size: 20,
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  Text("Görüntülü Ara"),
+                ],
+              ),
             ));
   }
 
@@ -118,7 +142,7 @@ class _ChatInfoScreenState extends State<ChatInfoScreen> {
                           width: 40,
                           child: ElevatedButton(
                             onPressed: () {
-                              call_phone();
+                              video_chat();
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Color.fromARGB(198, 97, 82, 196),
