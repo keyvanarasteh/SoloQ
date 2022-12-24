@@ -2,11 +2,43 @@
 
 import 'package:flutter/material.dart';
 
-class ChatInfoScreen extends StatelessWidget {
+class ChatInfoScreen extends StatefulWidget {
   const ChatInfoScreen({super.key});
 
   @override
+  State<ChatInfoScreen> createState() => _ChatInfoScreenState();
+}
+
+class _ChatInfoScreenState extends State<ChatInfoScreen> {
+  //expansison
+  //expansison
+  List<bool> boxCase = [
+    false,
+    false,
+    false,
+    false,
+  ];
+  //alert widget
+  call_phone() {
+    showDialog(
+        context: context,
+        builder: (_) => AlertDialog(
+              title: Text("Ara"),
+            ));
+  }
+
+  //alert widget
+  video_chat() {
+    showDialog(
+        context: context,
+        builder: (_) => AlertDialog(
+              title: Text("Görüntülü Ara"),
+            ));
+  }
+
+  @override
   Widget build(BuildContext context) {
+    //alert widget
     return Scaffold(
       backgroundColor: Color.fromRGBO(54, 57, 63, 1),
       body: SingleChildScrollView(
@@ -57,36 +89,51 @@ class ChatInfoScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(width: 10.0),
                         Container(
                           height: 40,
                           width: 40,
-                          decoration: BoxDecoration(
-                            color: Color.fromARGB(198, 97, 82, 196),
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(10),
+                          child: ElevatedButton(
+                            onPressed: () {
+                              call_phone();
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Color.fromARGB(198, 97, 82, 196),
+                              padding: EdgeInsets.all(10),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10.0)),
                             ),
-                          ),
-                          child: Icon(
-                            Icons.phone_callback_outlined,
-                            color: Colors.white,
-                            size: 20,
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 10),
+                              child: Icon(
+                                Icons.phone_callback_outlined,
+                                color: Colors.white,
+                                size: 20,
+                              ),
+                            ),
                           ),
                         ),
                         SizedBox(width: 13.0),
                         Container(
                           height: 40,
                           width: 40,
-                          decoration: BoxDecoration(
-                            color: Color.fromARGB(198, 97, 82, 196),
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(10),
+                          child: ElevatedButton(
+                            onPressed: () {
+                              call_phone();
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Color.fromARGB(198, 97, 82, 196),
+                              padding: EdgeInsets.all(10),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10.0)),
                             ),
-                          ),
-                          child: Icon(
-                            Icons.video_camera_back_outlined,
-                            color: Colors.white,
-                            size: 20,
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 10),
+                              child: Icon(
+                                Icons.video_camera_back_outlined,
+                                color: Colors.white,
+                                size: 20,
+                              ),
+                            ),
                           ),
                         ),
                         SizedBox(width: 13.0),
@@ -149,47 +196,45 @@ class ChatInfoScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(height: 10.0),
-                    Row(
+                    Wrap(
                       children: [
-                        SizedBox(width: 10.0),
-                        Container(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 15),
-                          decoration: BoxDecoration(
-                            color: Color.fromARGB(198, 97, 82, 196),
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(12),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 15),
+                            decoration: BoxDecoration(
+                              color: Color.fromARGB(198, 97, 82, 196),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(12),
+                              ),
+                            ),
+                            child: Text(
+                              'UI/UX Designer',
+                              style: TextStyle(color: Colors.white54),
                             ),
                           ),
-                          child: Text(
-                            'UI/UX Designer',
-                            style: TextStyle(color: Colors.white54),
-                          ),
                         ),
-                        SizedBox(width: 10.0),
-                        Container(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 15),
-                          decoration: BoxDecoration(
-                            color: Colors.amber[100],
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(12),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 15),
+                            decoration: BoxDecoration(
+                              color: Colors.amber[100],
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(12),
+                              ),
+                            ),
+                            child: Text(
+                              'QA',
+                              style: TextStyle(color: Colors.white),
                             ),
                           ),
-                          child: Text(
-                            'QA',
-                            style: TextStyle(color: Colors.white),
-                          ),
                         ),
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
+                        Padding(
+                          padding: const EdgeInsets.all(3.0),
+                          child: Container(
                             padding: EdgeInsets.symmetric(
                                 vertical: 10, horizontal: 15),
                             decoration: BoxDecoration(
@@ -203,137 +248,139 @@ class ChatInfoScreen extends StatelessWidget {
                               style: TextStyle(color: Colors.white54),
                             ),
                           ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      children: [
-                        SizedBox(width: 10.0),
-                        Container(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 15),
-                          decoration: BoxDecoration(
-                            color: Color.fromARGB(197, 100, 181, 147),
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(12),
-                            ),
-                          ),
-                          child: Text(
-                            'Seo',
-                            style: TextStyle(color: Colors.white54),
-                          ),
                         ),
-                        SizedBox(width: 10.0),
-                        Container(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 15),
-                          decoration: BoxDecoration(
-                            color: Color.fromARGB(237, 92, 45, 81),
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(12),
+                        Padding(
+                          padding: const EdgeInsets.all(3.0),
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 15),
+                            decoration: BoxDecoration(
+                              color: Color.fromARGB(197, 100, 181, 147),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(12),
+                              ),
                             ),
-                          ),
-                          child: Text(
-                            'Project Manager',
-                            style: TextStyle(color: Colors.white),
+                            child: Text(
+                              'Seo',
+                              style: TextStyle(color: Colors.white54),
+                            ),
                           ),
                         ),
                       ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(3.0),
+                      child: Container(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(237, 92, 45, 81),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(12),
+                          ),
+                        ),
+                        child: Text(
+                          'Project Manager',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
                     ),
                   ],
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.all(15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        'Attachments',
-                        style: TextStyle(
-                            fontSize: 15,
-                            color: Color.fromARGB(255, 199, 194, 194)),
+            ExpansionPanelList(
+              expansionCallback: (index, isOpen) {
+                for (var i = 0; i < boxCase.length; i++) {
+                  boxCase[i] = false;
+                }
+                setState(() {
+                  boxCase[index] = !isOpen;
+                });
+                print('tıkla $isOpen');
+              },
+              children: [
+                ExpansionPanel(
+                  backgroundColor: Color.fromRGBO(54, 57, 63, 1),
+                  headerBuilder: ((context, isExpanded) {
+                    return Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Text(
+                        "Attachments",
+                        style: TextStyle(color: Colors.white60),
                       ),
-                    ],
+                    );
+                  }),
+                  body: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Text(
+                      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                      style: TextStyle(color: Colors.white54),
+                    ),
                   ),
-                  Icon(
-                    Icons.keyboard_arrow_down_outlined,
-                    color: Color.fromARGB(255, 199, 194, 194),
-                  )
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        'Links',
-                        style: TextStyle(
-                            fontSize: 15,
-                            color: Color.fromARGB(255, 199, 194, 194)),
+                  isExpanded: boxCase[0],
+                ),
+                ExpansionPanel(
+                  backgroundColor: Color.fromRGBO(54, 57, 63, 1),
+                  headerBuilder: ((context, isExpanded) {
+                    return Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Text(
+                        "Links",
+                        style: TextStyle(color: Colors.white60),
                       ),
-                    ],
+                    );
+                  }),
+                  body: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Text(
+                      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                      style: TextStyle(color: Colors.white54),
+                    ),
                   ),
-                  Icon(
-                    Icons.keyboard_arrow_down_outlined,
-                    color: Color.fromARGB(255, 199, 194, 194),
-                  )
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        'All Vacancies',
-                        style: TextStyle(
-                            fontSize: 15,
-                            color: Color.fromARGB(255, 199, 194, 194)),
+                  isExpanded: boxCase[1],
+                ),
+                ExpansionPanel(
+                  backgroundColor: Color.fromRGBO(54, 57, 63, 1),
+                  headerBuilder: ((context, isExpanded) {
+                    return Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Text(
+                        "All Vacancies",
+                        style: TextStyle(color: Colors.white60),
                       ),
-                    ],
+                    );
+                  }),
+                  body: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Text(
+                      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                      style: TextStyle(color: Colors.white54),
+                    ),
                   ),
-                  Icon(
-                    Icons.keyboard_arrow_down_outlined,
-                    color: Color.fromARGB(255, 199, 194, 194),
-                  )
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        'Appointments',
-                        style: TextStyle(
-                            fontSize: 15,
-                            color: Color.fromARGB(255, 199, 194, 194)),
+                  isExpanded: boxCase[2],
+                ),
+                ExpansionPanel(
+                  backgroundColor: Color.fromRGBO(54, 57, 63, 1),
+                  headerBuilder: ((context, isExpanded) {
+                    return Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Text(
+                        "Appointments",
+                        style: TextStyle(color: Colors.white60),
                       ),
-                    ],
+                    );
+                  }),
+                  body: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Text(
+                      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                      style: TextStyle(color: Colors.white54),
+                    ),
                   ),
-                  Icon(
-                    Icons.keyboard_arrow_down_outlined,
-                    color: Color.fromARGB(255, 199, 194, 194),
-                  )
-                ],
-              ),
+                  isExpanded: boxCase[3],
+                ),
+              ],
             ),
             Container(
               margin: EdgeInsets.only(left: 10),

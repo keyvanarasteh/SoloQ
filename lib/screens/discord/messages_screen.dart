@@ -2,8 +2,15 @@
 
 import 'package:flutter/material.dart';
 
-class MessagesScreen extends StatelessWidget {
+class MessagesScreen extends StatefulWidget {
   const MessagesScreen({super.key});
+
+  @override
+  State<MessagesScreen> createState() => _MessagesScreenState();
+}
+
+class _MessagesScreenState extends State<MessagesScreen> {
+  bool isitBoxOpen = false;
 
   @override
   Widget build(BuildContext context) {
@@ -61,77 +68,84 @@ class MessagesScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Padding(
-              padding: EdgeInsets.all(15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        'All Messages',
-                        style: TextStyle(
-                            fontSize: 15,
-                            color: Color.fromARGB(255, 199, 194, 194)),
+            ExpansionPanelList(
+              expansionCallback: (index, isOpen) {
+                setState(() {
+                  isitBoxOpen = !isOpen;
+                });
+                print('tıkla $isOpen');
+              },
+              children: [
+                ExpansionPanel(
+                  backgroundColor: Color.fromRGBO(54, 57, 63, 1),
+                  headerBuilder: ((context, isExpanded) {
+                    return Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Text(
+                        "All Messages",
+                        style: TextStyle(color: Colors.white),
                       ),
-                    ],
-                  ),
-                  Icon(
-                    Icons.keyboard_arrow_up_outlined,
-                    color: Color.fromARGB(255, 199, 194, 194),
-                  )
-                ],
-              ),
-            ),
-            ChatItem(
-              avatar: 'assets/images/avatar.png',
-              name: 'Keyvan Arasteh',
-              number: '535 231 18 20',
-              message: 'what is this',
-              time: '19:22',
-            ),
-            ChatItem(
-              avatar: 'assets/images/avatar.png',
-              name: 'Ramazan Bakır',
-              number: '213 213 23 23',
-              message: 'see you',
-              time: '18:55',
-            ),
-            ChatItem(
-              avatar: 'assets/images/avatar.png',
-              name: 'Russel Hue',
-              number: '213 213 23 23',
-              message: 'hiii',
-              time: '18:30',
-              active: true,
-            ),
-            ChatItem(
-              avatar: 'assets/images/avatar.png',
-              name: 'Ahmet Selim',
-              number: '321 323 34 34',
-              message: 'how are you',
-              time: '14:45',
-            ),
-            ChatItem(
-              avatar: 'assets/images/avatar.png',
-              name: 'Ramazan Şen',
-              number: '321 655 65 87',
-              message: 'yes ı doesnt',
-              time: '13:23',
-            ),
-            ChatItem(
-              avatar: 'assets/images/avatar.png',
-              name: 'Ahmad al khas',
-              number: '346 645 64 48',
-              message: 'good morning',
-              time: '07:23',
-            ),
-            ChatItem(
-              avatar: 'assets/images/avatar.png',
-              name: 'Farzad Kiani',
-              number: '345 392 04 17',
-              message: 'good night',
-              time: '00:45',
+                    );
+                  }),
+                  body: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Column(
+                        children: [
+                          ChatItem(
+                            avatar: 'assets/images/avatar.png',
+                            name: 'Keyvan Arasteh',
+                            number: '535 231 18 20',
+                            message: 'what is this',
+                            time: '19:22',
+                          ),
+                          ChatItem(
+                            avatar: 'assets/images/avatar.png',
+                            name: 'Ramazan Bakır',
+                            number: '213 213 23 23',
+                            message: 'see you',
+                            time: '18:55',
+                          ),
+                          ChatItem(
+                            avatar: 'assets/images/avatar.png',
+                            name: 'Russel Hue',
+                            number: '213 213 23 23',
+                            message: 'hiii',
+                            time: '18:30',
+                            active: true,
+                          ),
+                          ChatItem(
+                            avatar: 'assets/images/avatar.png',
+                            name: 'Ahmet Selim',
+                            number: '321 323 34 34',
+                            message: 'how are you',
+                            time: '14:45',
+                          ),
+                          ChatItem(
+                            avatar: 'assets/images/avatar.png',
+                            name: 'Ramazan Şen',
+                            number: '321 655 65 87',
+                            message: 'yes ı doesnt',
+                            time: '13:23',
+                          ),
+                          ChatItem(
+                            avatar: 'assets/images/avatar.png',
+                            name: 'Ahmad al khas',
+                            number: '346 645 64 48',
+                            message: 'good morning',
+                            time: '07:23',
+                          ),
+                          ChatItem(
+                            avatar: 'assets/images/avatar.png',
+                            name: 'Farzad Kiani',
+                            number: '345 392 04 17',
+                            message: 'good night',
+                            time: '00:45',
+                          ),
+                        ],
+                      )),
+                  isExpanded: isitBoxOpen,
+                ),
+              ],
             ),
           ],
         ),
