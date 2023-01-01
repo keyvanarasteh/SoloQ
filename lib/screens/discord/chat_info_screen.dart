@@ -72,7 +72,7 @@ class _ChatInfoScreenState extends State<ChatInfoScreen> {
             Padding(
               padding: const EdgeInsets.all(15.0),
               child: Container(
-                height: 350,
+                height: 370,
                 width: 250,
                 decoration: BoxDecoration(
                     color: Color.fromARGB(255, 124, 104, 222),
