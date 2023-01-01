@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:soloq/screens/userProccessing/register_login.dart';
 
 class DiscordAppBar extends StatefulWidget {
   const DiscordAppBar(
@@ -94,11 +95,31 @@ class _DiscordAppBarState extends State<DiscordAppBar> {
                   size: 25,
                   color: Colors.white,
                 ),
+                SizedBox(
+                  width: 10,
+                ),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
+                SizedBox(
+                  width: 50,
+                  height: 30,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => userLog()));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black,
+                      padding: EdgeInsets.all(5),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0)),
+                    ),
+                    child: Center(child: Text('Çıkış')),
+                  ),
+                ),
                 Column(
                   children: [
                     Padding(
@@ -200,6 +221,23 @@ class _DiscordAppBarState extends State<DiscordAppBar> {
                     color: Colors.white,
                   ),
                 ),
+                SizedBox(
+                  width: 50,
+                  height: 30,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => userLog()));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black,
+                      padding: EdgeInsets.all(5),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0)),
+                    ),
+                    child: Center(child: Text('Çıkış')),
+                  ),
+                ),
                 Column(
                   children: [
                     Padding(
@@ -292,7 +330,7 @@ class _DiscordAppBarState extends State<DiscordAppBar> {
                     )
                   ],
                 ),
-                SizedBox(width: 10.0),
+                SizedBox(width: 5.0),
                 Row(
                   children: [
                     Icon(
@@ -307,7 +345,7 @@ class _DiscordAppBarState extends State<DiscordAppBar> {
                     )
                   ],
                 ),
-                SizedBox(width: 10.0),
+                SizedBox(width: 5.0),
                 Row(
                   children: [
                     Icon(
@@ -328,7 +366,7 @@ class _DiscordAppBarState extends State<DiscordAppBar> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(5.0),
                   child: Icon(
                     Icons.call_outlined,
                     size: 20,
@@ -346,6 +384,26 @@ class _DiscordAppBarState extends State<DiscordAppBar> {
                     size: 30,
                     color: Colors.white,
                   ),
+                ),
+                SizedBox(
+                  width: 50,
+                  height: 30,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => userLog()));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black,
+                      padding: EdgeInsets.all(5),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0)),
+                    ),
+                    child: Center(child: Text('Çıkış')),
+                  ),
+                ),
+                SizedBox(
+                  width: 3,
                 ),
                 Column(
                   children: [
@@ -493,6 +551,26 @@ class _DiscordAppBarState extends State<DiscordAppBar> {
                     size: 30,
                     color: Colors.white,
                   ),
+                ),
+                SizedBox(
+                  width: 50,
+                  height: 30,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => userLog()));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black,
+                      padding: EdgeInsets.all(5),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0)),
+                    ),
+                    child: Center(child: Text('Çıkış')),
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
                 ),
                 Column(
                   children: [

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:soloq/screens/discord/discord_screen.dart';
+import 'package:soloq/screens/userProccessing/register_login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: DiscordScreen(),
+      home: userLog(),
     );
   }
 }
