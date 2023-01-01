@@ -36,7 +36,9 @@ class _DiscordScreenState extends State<DiscordScreen> {
 
     Widget buildMainArea() {
       if (deviceType == 'mobile') {
-        return ChatScreen();
+        return Stack(children: [
+          ChatScreen(),
+        ]);
       } else if (deviceType == 'tablet') {
         return Stack(
           children: [
