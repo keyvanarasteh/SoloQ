@@ -17,6 +17,7 @@ class _tabbarState extends State<tabbar> {
         length: 3,
         child: Scaffold(
           appBar: AppBar(
+            backgroundColor: Colors.black,
             leading: IconButton(
               icon: const Icon(Icons.arrow_circle_left_outlined),
               onPressed: () {

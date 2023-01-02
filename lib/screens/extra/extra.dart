@@ -15,6 +15,7 @@ class _extraState extends State<extra> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            backgroundColor: Colors.black,
             expandedHeight: 50.0,
             flexibleSpace: const FlexibleSpaceBar(
               title: Text('Discord Kullanıcı listesi'),
@@ -36,11 +37,11 @@ class _extraState extends State<extra> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.grey[900],
+          backgroundColor: Colors.black,
           type: BottomNavigationBarType.fixed,
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home, color: Colors.orange[300]),
+              icon: Icon(Icons.home, color: Colors.white),
               label: '',
             ),
             BottomNavigationBarItem(
