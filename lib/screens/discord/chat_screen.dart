@@ -1,4 +1,5 @@
 import 'package:chat_bubbles/chat_bubbles.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'side_bar_screen.dart';
 import 'chat_info_screen.dart';
@@ -151,16 +152,36 @@ class _ChatScreenState extends State<ChatScreen> {
                     ),
                   ]),
             ),
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 20,
-              ),
-              child: BubbleSpecialThree(
-                text: 'How does it sound for you?',
-                color: Color.fromARGB(255, 40, 40, 40),
-                tail: false,
-                isSender: false,
-                textStyle: TextStyle(color: Colors.white, fontSize: 16),
+            CupertinoContextMenu(
+              actions: <Widget>[
+                CupertinoContextMenuAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  isDefaultAction: true,
+                  trailingIcon: CupertinoIcons.doc_on_clipboard_fill,
+                  child: const Text('Copy'),
+                ),
+                CupertinoContextMenuAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  isDestructiveAction: true,
+                  trailingIcon: CupertinoIcons.delete,
+                  child: const Text('Delete'),
+                ),
+              ],
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  top: 20,
+                ),
+                child: BubbleSpecialThree(
+                  text: 'How does it sound for you?',
+                  color: Color.fromARGB(255, 40, 40, 40),
+                  tail: false,
+                  isSender: false,
+                  textStyle: TextStyle(color: Colors.white, fontSize: 16),
+                ),
               ),
             ),
             Row(
@@ -174,24 +195,64 @@ class _ChatScreenState extends State<ChatScreen> {
                 SizedBox(width: 30.0),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 15,
-              ),
-              child: BubbleSpecialThree(
-                text: 'Yes, that sounds good!',
-                color: Color.fromARGB(255, 212, 118, 203),
-                tail: false,
-                textStyle: TextStyle(color: Colors.white, fontSize: 16),
+            CupertinoContextMenu(
+              actions: <Widget>[
+                CupertinoContextMenuAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  isDefaultAction: true,
+                  trailingIcon: CupertinoIcons.doc_on_clipboard_fill,
+                  child: const Text('Copy'),
+                ),
+                CupertinoContextMenuAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  isDestructiveAction: true,
+                  trailingIcon: CupertinoIcons.delete,
+                  child: const Text('Delete'),
+                ),
+              ],
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  top: 15,
+                ),
+                child: BubbleSpecialThree(
+                  text: 'Yes, that sounds good!',
+                  color: Color.fromARGB(255, 212, 118, 203),
+                  tail: false,
+                  textStyle: TextStyle(color: Colors.white, fontSize: 16),
+                ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 15),
-              child: BubbleSpecialThree(
-                text: 'Added iMassage shape bubbles',
-                color: Color.fromARGB(255, 212, 118, 203),
-                tail: false,
-                textStyle: TextStyle(color: Colors.white, fontSize: 16),
+            CupertinoContextMenu(
+              actions: <Widget>[
+                CupertinoContextMenuAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  isDefaultAction: true,
+                  trailingIcon: CupertinoIcons.doc_on_clipboard_fill,
+                  child: const Text('Copy'),
+                ),
+                CupertinoContextMenuAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  isDestructiveAction: true,
+                  trailingIcon: CupertinoIcons.delete,
+                  child: const Text('Delete'),
+                ),
+              ],
+              child: Padding(
+                padding: const EdgeInsets.only(top: 15),
+                child: BubbleSpecialThree(
+                  text: 'Added iMassage shape bubbles',
+                  color: Color.fromARGB(255, 212, 118, 203),
+                  tail: false,
+                  textStyle: TextStyle(color: Colors.white, fontSize: 16),
+                ),
               ),
             ),
             Padding(
@@ -223,21 +284,62 @@ class _ChatScreenState extends State<ChatScreen> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(5),
-              child: BubbleSpecialThree(
-                text: 'Good! Send you their visual',
-                color: Color.fromARGB(255, 40, 40, 40),
-                tail: false,
-                isSender: false,
-                textStyle: TextStyle(color: Colors.white, fontSize: 16),
+            CupertinoContextMenu(
+              actions: <Widget>[
+                CupertinoContextMenuAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  isDefaultAction: true,
+                  trailingIcon: CupertinoIcons.doc_on_clipboard_fill,
+                  child: const Text('Copy'),
+                ),
+                CupertinoContextMenuAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  isDestructiveAction: true,
+                  trailingIcon: CupertinoIcons.delete,
+                  child: const Text('Delete'),
+                ),
+              ],
+              child: Padding(
+                padding: const EdgeInsets.all(5),
+                child: BubbleSpecialThree(
+                  text: 'Good! Send you their visual',
+                  color: Color.fromARGB(255, 40, 40, 40),
+                  tail: false,
+                  isSender: false,
+                  textStyle: TextStyle(color: Colors.white, fontSize: 16),
+                ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(),
+            CupertinoButton(
+              onPressed: () {
+                showCupertinoModalPopup<void>(
+                  context: context,
+                  builder: (BuildContext context) => CupertinoActionSheet(
+                    title: const Text('MENÜ'),
+                    actions: <CupertinoActionSheetAction>[
+                      CupertinoActionSheetAction(
+                        child: const Text('Kaydet'),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      ),
+                      CupertinoActionSheetAction(
+                        child: const Text('İlet'),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      )
+                    ],
+                  ),
+                );
+              },
               child: Container(
                 margin: const EdgeInsets.only(left: 10.0, right: 110),
-                width: 48.0,
+                width: 500.0,
                 height: 150.0,
                 decoration: BoxDecoration(
                   color: Color.fromARGB(255, 126, 38, 227),
@@ -432,16 +534,36 @@ class _ChatScreenState extends State<ChatScreen> {
                     ),
                   ]),
             ),
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 20,
-              ),
-              child: BubbleSpecialThree(
-                text: 'How does it sound for you?',
-                color: Color.fromARGB(255, 40, 40, 40),
-                tail: false,
-                isSender: false,
-                textStyle: TextStyle(color: Colors.white, fontSize: 16),
+            CupertinoContextMenu(
+              actions: <Widget>[
+                CupertinoContextMenuAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  isDefaultAction: true,
+                  trailingIcon: CupertinoIcons.doc_on_clipboard_fill,
+                  child: const Text('Copy'),
+                ),
+                CupertinoContextMenuAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  isDestructiveAction: true,
+                  trailingIcon: CupertinoIcons.delete,
+                  child: const Text('Delete'),
+                ),
+              ],
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  top: 20,
+                ),
+                child: BubbleSpecialThree(
+                  text: 'How does it sound for you?',
+                  color: Color.fromARGB(255, 40, 40, 40),
+                  tail: false,
+                  isSender: false,
+                  textStyle: TextStyle(color: Colors.white, fontSize: 16),
+                ),
               ),
             ),
             Row(
@@ -455,24 +577,64 @@ class _ChatScreenState extends State<ChatScreen> {
                 SizedBox(width: 30.0),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 15,
-              ),
-              child: BubbleSpecialThree(
-                text: 'Yes, that sounds good!',
-                color: Color.fromARGB(255, 212, 118, 203),
-                tail: false,
-                textStyle: TextStyle(color: Colors.white, fontSize: 16),
+            CupertinoContextMenu(
+              actions: <Widget>[
+                CupertinoContextMenuAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  isDefaultAction: true,
+                  trailingIcon: CupertinoIcons.doc_on_clipboard_fill,
+                  child: const Text('Copy'),
+                ),
+                CupertinoContextMenuAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  isDestructiveAction: true,
+                  trailingIcon: CupertinoIcons.delete,
+                  child: const Text('Delete'),
+                ),
+              ],
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  top: 15,
+                ),
+                child: BubbleSpecialThree(
+                  text: 'Yes, that sounds good!',
+                  color: Color.fromARGB(255, 212, 118, 203),
+                  tail: false,
+                  textStyle: TextStyle(color: Colors.white, fontSize: 16),
+                ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 15),
-              child: BubbleSpecialThree(
-                text: 'Added iMassage shape bubbles',
-                color: Color.fromARGB(255, 212, 118, 203),
-                tail: false,
-                textStyle: TextStyle(color: Colors.white, fontSize: 16),
+            CupertinoContextMenu(
+              actions: <Widget>[
+                CupertinoContextMenuAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  isDefaultAction: true,
+                  trailingIcon: CupertinoIcons.doc_on_clipboard_fill,
+                  child: const Text('Copy'),
+                ),
+                CupertinoContextMenuAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  isDestructiveAction: true,
+                  trailingIcon: CupertinoIcons.delete,
+                  child: const Text('Delete'),
+                ),
+              ],
+              child: Padding(
+                padding: const EdgeInsets.only(top: 15),
+                child: BubbleSpecialThree(
+                  text: 'Added iMassage shape bubbles',
+                  color: Color.fromARGB(255, 212, 118, 203),
+                  tail: false,
+                  textStyle: TextStyle(color: Colors.white, fontSize: 16),
+                ),
               ),
             ),
             Padding(
@@ -504,21 +666,62 @@ class _ChatScreenState extends State<ChatScreen> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(5),
-              child: BubbleSpecialThree(
-                text: 'Good! Send you their visual',
-                color: Color.fromARGB(255, 40, 40, 40),
-                tail: false,
-                isSender: false,
-                textStyle: TextStyle(color: Colors.white, fontSize: 16),
+            CupertinoContextMenu(
+              actions: <Widget>[
+                CupertinoContextMenuAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  isDefaultAction: true,
+                  trailingIcon: CupertinoIcons.doc_on_clipboard_fill,
+                  child: const Text('Copy'),
+                ),
+                CupertinoContextMenuAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  isDestructiveAction: true,
+                  trailingIcon: CupertinoIcons.delete,
+                  child: const Text('Delete'),
+                ),
+              ],
+              child: Padding(
+                padding: const EdgeInsets.all(5),
+                child: BubbleSpecialThree(
+                  text: 'Good! Send you their visual',
+                  color: Color.fromARGB(255, 40, 40, 40),
+                  tail: false,
+                  isSender: false,
+                  textStyle: TextStyle(color: Colors.white, fontSize: 16),
+                ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(),
+            CupertinoButton(
+              onPressed: () {
+                showCupertinoModalPopup<void>(
+                  context: context,
+                  builder: (BuildContext context) => CupertinoActionSheet(
+                    title: const Text('MENÜ'),
+                    actions: <CupertinoActionSheetAction>[
+                      CupertinoActionSheetAction(
+                        child: const Text('Kaydet'),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      ),
+                      CupertinoActionSheetAction(
+                        child: const Text('İlet'),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      )
+                    ],
+                  ),
+                );
+              },
               child: Container(
                 margin: const EdgeInsets.only(left: 10.0, right: 110),
-                width: 48.0,
+                width: 500.0,
                 height: 150.0,
                 decoration: BoxDecoration(
                   color: Color.fromARGB(255, 126, 38, 227),
@@ -694,16 +897,36 @@ class _ChatScreenState extends State<ChatScreen> {
                     )
                   ]),
             ),
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 20,
-              ),
-              child: BubbleSpecialThree(
-                text: 'How does it sound for you?',
-                color: Color.fromARGB(255, 40, 40, 40),
-                tail: false,
-                isSender: false,
-                textStyle: TextStyle(color: Colors.white, fontSize: 16),
+            CupertinoContextMenu(
+              actions: <Widget>[
+                CupertinoContextMenuAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  isDefaultAction: true,
+                  trailingIcon: CupertinoIcons.doc_on_clipboard_fill,
+                  child: const Text('Copy'),
+                ),
+                CupertinoContextMenuAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  isDestructiveAction: true,
+                  trailingIcon: CupertinoIcons.delete,
+                  child: const Text('Delete'),
+                ),
+              ],
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  top: 20,
+                ),
+                child: BubbleSpecialThree(
+                  text: 'How does it sound for you?',
+                  color: Color.fromARGB(255, 40, 40, 40),
+                  tail: false,
+                  isSender: false,
+                  textStyle: TextStyle(color: Colors.white, fontSize: 16),
+                ),
               ),
             ),
             Row(
@@ -717,24 +940,64 @@ class _ChatScreenState extends State<ChatScreen> {
                 SizedBox(width: 30.0),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 15,
-              ),
-              child: BubbleSpecialThree(
-                text: 'Yes, that sounds good!',
-                color: Color.fromARGB(255, 212, 118, 203),
-                tail: false,
-                textStyle: TextStyle(color: Colors.white, fontSize: 16),
+            CupertinoContextMenu(
+              actions: <Widget>[
+                CupertinoContextMenuAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  isDefaultAction: true,
+                  trailingIcon: CupertinoIcons.doc_on_clipboard_fill,
+                  child: const Text('Copy'),
+                ),
+                CupertinoContextMenuAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  isDestructiveAction: true,
+                  trailingIcon: CupertinoIcons.delete,
+                  child: const Text('Delete'),
+                ),
+              ],
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  top: 15,
+                ),
+                child: BubbleSpecialThree(
+                  text: 'Yes, that sounds good!',
+                  color: Color.fromARGB(255, 212, 118, 203),
+                  tail: false,
+                  textStyle: TextStyle(color: Colors.white, fontSize: 16),
+                ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 15),
-              child: BubbleSpecialThree(
-                text: 'Added iMassage shape bubbles',
-                color: Color.fromARGB(255, 212, 118, 203),
-                tail: false,
-                textStyle: TextStyle(color: Colors.white, fontSize: 16),
+            CupertinoContextMenu(
+              actions: <Widget>[
+                CupertinoContextMenuAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  isDefaultAction: true,
+                  trailingIcon: CupertinoIcons.doc_on_clipboard_fill,
+                  child: const Text('Copy'),
+                ),
+                CupertinoContextMenuAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  isDestructiveAction: true,
+                  trailingIcon: CupertinoIcons.delete,
+                  child: const Text('Delete'),
+                ),
+              ],
+              child: Padding(
+                padding: const EdgeInsets.only(top: 15),
+                child: BubbleSpecialThree(
+                  text: 'Added iMassage shape bubbles',
+                  color: Color.fromARGB(255, 212, 118, 203),
+                  tail: false,
+                  textStyle: TextStyle(color: Colors.white, fontSize: 16),
+                ),
               ),
             ),
             Padding(
@@ -766,21 +1029,62 @@ class _ChatScreenState extends State<ChatScreen> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(5),
-              child: BubbleSpecialThree(
-                text: 'Good! Send you their visual',
-                color: Color.fromARGB(255, 40, 40, 40),
-                tail: false,
-                isSender: false,
-                textStyle: TextStyle(color: Colors.white, fontSize: 16),
+            CupertinoContextMenu(
+              actions: <Widget>[
+                CupertinoContextMenuAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  isDefaultAction: true,
+                  trailingIcon: CupertinoIcons.doc_on_clipboard_fill,
+                  child: const Text('Copy'),
+                ),
+                CupertinoContextMenuAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  isDestructiveAction: true,
+                  trailingIcon: CupertinoIcons.delete,
+                  child: const Text('Delete'),
+                ),
+              ],
+              child: Padding(
+                padding: const EdgeInsets.all(5),
+                child: BubbleSpecialThree(
+                  text: 'Good! Send you their visual',
+                  color: Color.fromARGB(255, 40, 40, 40),
+                  tail: false,
+                  isSender: false,
+                  textStyle: TextStyle(color: Colors.white, fontSize: 16),
+                ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(),
+            CupertinoButton(
+              onPressed: () {
+                showCupertinoModalPopup<void>(
+                  context: context,
+                  builder: (BuildContext context) => CupertinoActionSheet(
+                    title: const Text('MENÜ'),
+                    actions: <CupertinoActionSheetAction>[
+                      CupertinoActionSheetAction(
+                        child: const Text('Kaydet'),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      ),
+                      CupertinoActionSheetAction(
+                        child: const Text('İlet'),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      )
+                    ],
+                  ),
+                );
+              },
               child: Container(
                 margin: const EdgeInsets.only(left: 10.0, right: 110),
-                width: 48.0,
+                width: 500.0,
                 height: 150.0,
                 decoration: BoxDecoration(
                   color: Color.fromARGB(255, 126, 38, 227),

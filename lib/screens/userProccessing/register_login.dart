@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:soloq/screens/discord/discord_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
+import 'package:dio/dio.dart';
 
 class userLog extends StatefulWidget {
   const userLog({super.key});
@@ -11,6 +12,27 @@ class userLog extends StatefulWidget {
   @override
   State<userLog> createState() => _userLogState();
 }
+
+// Initial Selected Value
+String dropdownvalue = 'Seç';
+
+// List of items in our dropdown menu
+var items = [
+  'Seç',
+  '1992',
+  '1993',
+  '1994',
+  '1995',
+  '1996',
+  '1997',
+  '1998',
+  '1999',
+  '2000',
+  '2001',
+  '2002',
+];
+int _value = 6;
+RangeValues _currentRangeValues = const RangeValues(20, 60);
 
 enum SingingCharacter { man, women, undefined }
 
@@ -21,8 +43,19 @@ class _userLogState extends State<userLog> {
   Set<String> skills = {};
   bool isSwitched = false;
   SingingCharacter? _character = SingingCharacter.undefined;
+  late Future<dynamic> profile;
+  Future<dynamic> downloadProfile() async {
+    var response = await Dio().get("https://reqres.in/api/users/1");
+    print(response.data);
+    return response.data;
+  }
 
   @override
+  void initState() {
+    super.initState();
+    profile = downloadProfile();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
@@ -57,35 +90,38 @@ class _userLogState extends State<userLog> {
                       padding: const EdgeInsets.only(bottom: 15),
                       child: Align(
                         alignment: Alignment.centerRight,
-                        child: Container(
-                            height: 100,
-                            width: 120,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(30),
-                                  topLeft: Radius.circular(30),
-                                )),
-                            child: Center(
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Wrap(
-                                  children: [
-                                    Text(
-                                      'Kayıt Olmak İçin Sola Kaydır.',
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    Center(
-                                        child: Icon(
-                                      Icons.arrow_circle_right_outlined,
-                                      size: 30,
-                                    ))
-                                  ],
+                        child: Opacity(
+                          opacity: 0.7,
+                          child: Container(
+                              height: 100,
+                              width: 120,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(30),
+                                    topLeft: Radius.circular(30),
+                                  )),
+                              child: Center(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Wrap(
+                                    children: [
+                                      Text(
+                                        'Kayıt Olmak İçin Sola Kaydır.',
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      Center(
+                                          child: Icon(
+                                        Icons.arrow_circle_right_outlined,
+                                        size: 30,
+                                      ))
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            )),
+                              )),
+                        ),
                       ),
                     ),
                     Padding(
@@ -161,7 +197,7 @@ class _userLogState extends State<userLog> {
                                       SizedBox(
                                         width: 200,
                                         height: 40,
-                                        child: ElevatedButton(
+                                        child: CupertinoButton(
                                           onPressed: () {
                                             Navigator.push(
                                                 context,
@@ -169,14 +205,8 @@ class _userLogState extends State<userLog> {
                                                     builder: (context) =>
                                                         DiscordScreen()));
                                           },
-                                          style: ElevatedButton.styleFrom(
-                                            backgroundColor: Colors.white60,
-                                            padding: EdgeInsets.all(10),
-                                            shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                        20.0)),
-                                          ),
+                                          color: Colors.white60,
+                                          padding: EdgeInsets.all(10),
                                           child: Center(child: Text('GİRİŞ')),
                                         ),
                                       ),
@@ -223,6 +253,42 @@ class _userLogState extends State<userLog> {
                         padding: const EdgeInsets.all(20.0),
                         child: Column(
                           children: [
+                            Text(
+                              'Örnek Kullanıcı',
+                              style: TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            FutureBuilder(
+                                future: profile,
+                                builder: (context, snapshot) {
+                                  switch (snapshot.connectionState) {
+                                    case (ConnectionState.active):
+                                      return Text('aktif');
+                                      break;
+                                    case (ConnectionState.waiting):
+                                      return LinearProgressIndicator(
+                                        backgroundColor: Colors.white,
+                                        color: Color.fromARGB(255, 80, 47, 58),
+                                      );
+                                      break;
+                                    case (ConnectionState.done):
+                                      return Column(children: [
+                                        Text(
+                                            'Kullanıcı adı: ${snapshot.data['data']['first_name']}'),
+                                        Text(
+                                            'Email: ${snapshot.data['data']['email']}'),
+                                      ]);
+                                      break;
+                                    default:
+                                      return Text('hata');
+                                  }
+                                }),
+                            SizedBox(
+                              height: 20,
+                            ),
                             SizedBox(
                               //height: 30,
                               child: TextFormField(
@@ -445,6 +511,91 @@ class _userLogState extends State<userLog> {
                                       });
                                     },
                                   ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Row(children: [
+                              Text('Doğum yılı:'),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              DropdownButton(
+                                value: dropdownvalue,
+                                icon: const Icon(Icons.keyboard_arrow_down),
+                                items: items.map((String items) {
+                                  return DropdownMenuItem(
+                                    value: items,
+                                    child: Text(items),
+                                  );
+                                }).toList(),
+                                onChanged: (String? newValue) {
+                                  setState(() {
+                                    dropdownvalue = newValue!;
+                                  });
+                                },
+                              ),
+                            ]),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 3),
+                                  child:
+                                      Text('İstediniz günlük çalışma saati:'),
+                                ),
+                                Slider(
+                                    value: _value.toDouble(),
+                                    min: 1.0,
+                                    max: 12.0,
+                                    divisions: 5,
+                                    activeColor: Colors.black,
+                                    inactiveColor: Colors.white,
+                                    label: '$_value',
+                                    onChanged: (double newValue) {
+                                      setState(() {
+                                        _value = newValue.round();
+                                      });
+                                    },
+                                    semanticFormatterCallback:
+                                        (double newValue) {
+                                      return '${newValue.round()} dollars';
+                                    })
+                              ],
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.all(5),
+                                  child: Text(
+                                      'Kaç bin aralığında maaş beklentiniz var:'),
+                                ),
+                                RangeSlider(
+                                  values: _currentRangeValues,
+                                  min: 0,
+                                  max: 100,
+                                  divisions: 10,
+                                  activeColor: Colors.black,
+                                  inactiveColor: Colors.white,
+                                  labels: RangeLabels(
+                                    _currentRangeValues.start
+                                        .round()
+                                        .toString(),
+                                    _currentRangeValues.end.round().toString(),
+                                  ),
+                                  onChanged: (RangeValues values) {
+                                    setState(() {
+                                      _currentRangeValues = values;
+                                    });
+                                  },
                                 ),
                               ],
                             ),

@@ -71,245 +71,255 @@ class _ChatInfoScreenState extends State<ChatInfoScreen> {
           children: [
             Padding(
               padding: const EdgeInsets.all(15.0),
-              child: Container(
-                height: 370,
-                width: 250,
-                decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 124, 104, 222),
-                    borderRadius: BorderRadius.all(Radius.circular(15))),
-                child: Column(
-                  children: [
-                    Row(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(30),
+                child: Card(
+                  elevation: 50,
+                  shadowColor: Color.fromARGB(255, 124, 104, 222),
+                  color: Color.fromARGB(255, 124, 104, 222),
+                  child: SizedBox(
+                    height: 370,
+                    width: 250,
+                    child: Column(
                       children: [
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.only(
+                                      top: 10, left: 20, right: 10),
+                                  child: CircleAvatar(
+                                    backgroundImage:
+                                        AssetImage("assets/images/avatar.png"),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                Text(
+                                  'Russel Hue',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                Text(
+                                  '+(1) 345-123-5467',
+                                  style: TextStyle(
+                                      color:
+                                          Color.fromARGB(255, 209, 203, 203)),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 15.0),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Container(
-                              padding:
-                                  EdgeInsets.only(top: 10, left: 20, right: 10),
-                              child: CircleAvatar(
-                                backgroundImage:
-                                    AssetImage("assets/images/avatar.png"),
+                              height: 40,
+                              width: 40,
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  call_phone();
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor:
+                                      Color.fromARGB(198, 97, 82, 196),
+                                  padding: EdgeInsets.all(10),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(10.0)),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(right: 10),
+                                  child: Icon(
+                                    Icons.phone_callback_outlined,
+                                    color: Colors.white,
+                                    size: 20,
+                                  ),
+                                ),
                               ),
                             ),
+                            SizedBox(width: 13.0),
+                            Container(
+                              height: 40,
+                              width: 40,
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  video_chat();
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor:
+                                      Color.fromARGB(198, 97, 82, 196),
+                                  padding: EdgeInsets.all(10),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(10.0)),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(right: 10),
+                                  child: Icon(
+                                    Icons.video_camera_back_outlined,
+                                    color: Colors.white,
+                                    size: 20,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(width: 13.0),
+                            Container(
+                              height: 40,
+                              width: 40,
+                              decoration: BoxDecoration(
+                                color: Color.fromARGB(198, 97, 82, 196),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(10),
+                                ),
+                              ),
+                              child: Icon(
+                                Icons.volume_off_outlined,
+                                color: Colors.white,
+                                size: 20,
+                              ),
+                            ),
+                            SizedBox(width: 13.0),
+                            Container(
+                              height: 40,
+                              width: 40,
+                              decoration: BoxDecoration(
+                                color: Color.fromARGB(198, 97, 82, 196),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(10),
+                                ),
+                              ),
+                              child: Icon(
+                                Icons.badge_outlined,
+                                color: Color.fromARGB(255, 156, 152, 152),
+                                size: 20,
+                              ),
+                            ),
+                            SizedBox(width: 10.0),
                           ],
                         ),
-                        Column(
+                        SizedBox(height: 10.0),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Hello Everybody!',
+                                style: TextStyle(color: Colors.white54),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Our company are looking for!',
+                                style: TextStyle(color: Colors.white54),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Wrap(
                           children: [
-                            Text(
-                              'Russel Hue',
-                              style: TextStyle(color: Colors.white),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(12),
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 10, horizontal: 15),
+                                  decoration: BoxDecoration(
+                                    color: Color.fromARGB(198, 97, 82, 196),
+                                  ),
+                                  child: Text(
+                                    'UI/UX Designer',
+                                    style: TextStyle(color: Colors.white54),
+                                  ),
+                                ),
+                              ),
                             ),
-                            Text(
-                              '+(1) 345-123-5467',
-                              style: TextStyle(
-                                  color: Color.fromARGB(255, 209, 203, 203)),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(12),
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 10, horizontal: 15),
+                                  decoration: BoxDecoration(
+                                    color: Colors.amber[100],
+                                  ),
+                                  child: Text(
+                                    'QA',
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(3.0),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(12),
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 10, horizontal: 15),
+                                  decoration: BoxDecoration(
+                                    color: Color.fromARGB(255, 210, 108, 161),
+                                  ),
+                                  child: Text(
+                                    'Java Script Developer',
+                                    style: TextStyle(color: Colors.white54),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(3.0),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(12),
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 10, horizontal: 15),
+                                  decoration: BoxDecoration(
+                                    color: Color.fromARGB(197, 100, 181, 147),
+                                  ),
+                                  child: Text(
+                                    'Seo',
+                                    style: TextStyle(color: Colors.white54),
+                                  ),
+                                ),
+                              ),
                             ),
                           ],
                         ),
-                      ],
-                    ),
-                    SizedBox(height: 15.0),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          height: 40,
-                          width: 40,
-                          child: ElevatedButton(
-                            onPressed: () {
-                              call_phone();
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Color.fromARGB(198, 97, 82, 196),
-                              padding: EdgeInsets.all(10),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10.0)),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 10),
-                              child: Icon(
-                                Icons.phone_callback_outlined,
-                                color: Colors.white,
-                                size: 20,
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: 13.0),
-                        Container(
-                          height: 40,
-                          width: 40,
-                          child: ElevatedButton(
-                            onPressed: () {
-                              video_chat();
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Color.fromARGB(198, 97, 82, 196),
-                              padding: EdgeInsets.all(10),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10.0)),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 10),
-                              child: Icon(
-                                Icons.video_camera_back_outlined,
-                                color: Colors.white,
-                                size: 20,
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: 13.0),
-                        Container(
-                          height: 40,
-                          width: 40,
-                          decoration: BoxDecoration(
-                            color: Color.fromARGB(198, 97, 82, 196),
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(10),
-                            ),
-                          ),
-                          child: Icon(
-                            Icons.volume_off_outlined,
-                            color: Colors.white,
-                            size: 20,
-                          ),
-                        ),
-                        SizedBox(width: 13.0),
-                        Container(
-                          height: 40,
-                          width: 40,
-                          decoration: BoxDecoration(
-                            color: Color.fromARGB(198, 97, 82, 196),
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(10),
-                            ),
-                          ),
-                          child: Icon(
-                            Icons.badge_outlined,
-                            color: Color.fromARGB(255, 156, 152, 152),
-                            size: 20,
-                          ),
-                        ),
-                        SizedBox(width: 10.0),
-                      ],
-                    ),
-                    SizedBox(height: 10.0),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Hello Everybody!',
-                            style: TextStyle(color: Colors.white54),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Our company are looking for!',
-                            style: TextStyle(color: Colors.white54),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Wrap(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 10, horizontal: 15),
-                            decoration: BoxDecoration(
-                              color: Color.fromARGB(198, 97, 82, 196),
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(12),
-                              ),
-                            ),
-                            child: Text(
-                              'UI/UX Designer',
-                              style: TextStyle(color: Colors.white54),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 10, horizontal: 15),
-                            decoration: BoxDecoration(
-                              color: Colors.amber[100],
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(12),
-                              ),
-                            ),
-                            child: Text(
-                              'QA',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ),
-                        ),
                         Padding(
                           padding: const EdgeInsets.all(3.0),
-                          child: Container(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 10, horizontal: 15),
-                            decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 210, 108, 161),
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(12),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: Container(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 10, horizontal: 15),
+                              decoration: BoxDecoration(
+                                color: Color.fromARGB(237, 92, 45, 81),
                               ),
-                            ),
-                            child: Text(
-                              'Java Script Developer',
-                              style: TextStyle(color: Colors.white54),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(3.0),
-                          child: Container(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 10, horizontal: 15),
-                            decoration: BoxDecoration(
-                              color: Color.fromARGB(197, 100, 181, 147),
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(12),
+                              child: Text(
+                                'Project Manager',
+                                style: TextStyle(color: Colors.white),
                               ),
-                            ),
-                            child: Text(
-                              'Seo',
-                              style: TextStyle(color: Colors.white54),
                             ),
                           ),
                         ),
                       ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(3.0),
-                      child: Container(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(237, 92, 45, 81),
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(12),
-                          ),
-                        ),
-                        child: Text(
-                          'Project Manager',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
             ),
