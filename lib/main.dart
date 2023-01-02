@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:soloq/screens/discord/discord_screen.dart';
+import 'package:soloq/screens/extra/tabbar.dart';
 import 'package:soloq/screens/userProccessing/register_login.dart';
 
 void main() {
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: userLog(),
+      home: tabbar(),
     );
   }
 }

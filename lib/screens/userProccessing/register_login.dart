@@ -5,6 +5,8 @@ import 'package:soloq/screens/discord/discord_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 import 'package:dio/dio.dart';
+import 'package:soloq/screens/extra/extra.dart';
+import 'package:soloq/screens/extra/tabbar.dart';
 
 class userLog extends StatefulWidget {
   const userLog({super.key});
@@ -71,6 +73,67 @@ class _userLogState extends State<userLog> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.max,
                   children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(2.0),
+                          child: Column(
+                            children: [
+                              Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  SizedBox(
+                                    width: 200,
+                                    height: 40,
+                                    child: CupertinoButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) => extra()));
+                                      },
+                                      color: Colors.white60,
+                                      padding: EdgeInsets.all(10),
+                                      child:
+                                          Center(child: Text('Extra Widgets')),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(2.0),
+                          child: Column(
+                            children: [
+                              Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  SizedBox(
+                                    width: 200,
+                                    height: 40,
+                                    child: CupertinoButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    tabbar()));
+                                      },
+                                      color: Colors.white60,
+                                      padding: EdgeInsets.all(10),
+                                      child: Center(child: Text('Tab Bar')),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                     Padding(
                       padding: const EdgeInsets.only(top: 100.0),
                       child: Center(
