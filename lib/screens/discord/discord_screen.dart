@@ -50,7 +50,7 @@ class _DiscordScreenState extends State<DiscordScreen> {
               child: Row(children: [
                 Expanded(
                   flex: 5,
-                  child: MessagesScreen(),
+                  child: SideBarScreen(),
                 ),
                 Expanded(
                   flex: 7,

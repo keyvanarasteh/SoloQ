@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:soloq/screens/discord/discord_screen.dart';
@@ -389,6 +390,37 @@ class _userLogState extends State<userLog> {
                                 decoration: InputDecoration(
                                   labelStyle: TextStyle(color: Colors.black),
                                   labelText: "Email giriniz. ",
+                                  fillColor: Colors.black,
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(25.0),
+                                    borderSide: BorderSide(
+                                      width: 3,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: Colors.black, width: 2.0),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            SizedBox(
+                              child: TextFormField(
+                                style: TextStyle(
+                                  color: Colors.black,
+                                ),
+                                keyboardType: TextInputType.number,
+                                inputFormatters: [
+                                  FilteringTextInputFormatter.digitsOnly
+                                ],
+                                maxLength: 10,
+                                decoration: InputDecoration(
+                                  labelStyle: TextStyle(color: Colors.black),
+                                  labelText: "Telefon numarası giriniz. ",
                                   fillColor: Colors.black,
                                   focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(25.0),

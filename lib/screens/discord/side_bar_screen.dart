@@ -15,6 +15,12 @@ class _SideBarScreenState extends State<SideBarScreen> {
   checkDevice(double width) {
     if (width <= 576) {
       return "mobile";
+    } else if (width <= 768) {
+      return "tablet";
+    } else if (width <= 1024) {
+      return "desktop";
+    } else {
+      return "large";
     }
   }
 
@@ -25,7 +31,7 @@ class _SideBarScreenState extends State<SideBarScreen> {
     var scrWidth = MediaQuery.of(context).size.width;
     var scrHeight = MediaQuery.of(context).size.height;
     var deviceType = checkDevice(scrWidth);
-    if (deviceType == 'mobile') {
+    if (deviceType == 'mobile' || deviceType == 'tablet') {
       return Scaffold(
         backgroundColor: Colors.black,
         body: Container(

@@ -14,6 +14,12 @@ class _MessagesScreenState extends State<MessagesScreen> {
   checkDevice(double width) {
     if (width <= 576) {
       return "mobile";
+    } else if (width <= 768) {
+      return "tablet";
+    } else if (width <= 1024) {
+      return "desktop";
+    } else {
+      return "large";
     }
   }
 
@@ -22,7 +28,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
     var scrWidth = MediaQuery.of(context).size.width;
     var scrHeight = MediaQuery.of(context).size.height;
     var deviceType = checkDevice(scrWidth);
-    if (deviceType == 'mobile') {
+    if (deviceType == 'mobile' || deviceType == 'tablet') {
       return Container(
         color: Color.fromRGBO(54, 57, 63, 1),
         child: Column(
