@@ -176,6 +176,38 @@ class _ChatScreenState extends State<ChatScreen> {
                   top: 20,
                 ),
                 child: BubbleSpecialThree(
+                  text: 'What are you doing bro?',
+                  color: Color.fromARGB(255, 40, 40, 40),
+                  tail: false,
+                  isSender: false,
+                  textStyle: TextStyle(color: Colors.white, fontSize: 16),
+                ),
+              ),
+            ),
+            CupertinoContextMenu(
+              actions: <Widget>[
+                CupertinoContextMenuAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  isDefaultAction: true,
+                  trailingIcon: CupertinoIcons.doc_on_clipboard_fill,
+                  child: const Text('Copy'),
+                ),
+                CupertinoContextMenuAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  isDestructiveAction: true,
+                  trailingIcon: CupertinoIcons.delete,
+                  child: const Text('Delete'),
+                ),
+              ],
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  top: 20,
+                ),
+                child: BubbleSpecialThree(
                   text: 'How does it sound for you?',
                   color: Color.fromARGB(255, 40, 40, 40),
                   tail: false,

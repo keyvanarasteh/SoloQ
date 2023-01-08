@@ -31,73 +31,30 @@ class _DiscordAppBarState extends State<DiscordAppBar> {
     var deviceType = checkDevice(scrWidth);
     if (deviceType == 'mobile') {
       return SafeArea(
+        top: true,
+        left: true,
+        right: true,
+        bottom: true,
         child: Container(
           height: 60,
           width: double.infinity,
           color: Color.fromRGBO(54, 57, 63, 1),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
+                    padding: EdgeInsets.all(5),
                     child: Text(
                       'Discord',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 15,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Icon(
-                    Icons.content_paste,
-                    size: 20,
-                    color: Colors.white,
-                  ),
-                  SizedBox(width: 10.0),
-                  Icon(
-                    Icons.assignment_ind_outlined,
-                    size: 20,
-                    color: Colors.white,
-                  ),
-                  SizedBox(width: 10.0),
-                  Icon(
-                    Icons.area_chart_outlined,
-                    size: 20,
-                    color: Colors.white,
-                  ),
-                  SizedBox(width: 10.0),
-                  Icon(
-                    Icons.chat_outlined,
-                    size: 20,
-                    color: Colors.amberAccent[100],
-                  ),
-                  SizedBox(width: 10.0),
-                  Icon(
-                    Icons.apps_outlined,
-                    size: 20,
-                    color: Colors.white,
-                  ),
-                  SizedBox(width: 10.0),
-                  Icon(
-                    Icons.call_outlined,
-                    size: 20,
-                    color: Colors.white,
-                  ),
-                  SizedBox(width: 10.0),
-                  Icon(
-                    Icons.doorbell_outlined,
-                    size: 25,
-                    color: Colors.white,
-                  ),
-                  SizedBox(
-                    width: 10,
                   ),
                 ],
               ),
@@ -135,8 +92,11 @@ class _DiscordAppBarState extends State<DiscordAppBar> {
                           style: TextStyle(fontSize: 10, color: Colors.white)),
                     ],
                   ),
-                  CircleAvatar(
-                    backgroundImage: AssetImage("assets/images/avatar.png"),
+                  Container(
+                    padding: EdgeInsets.all(8),
+                    child: CircleAvatar(
+                      backgroundImage: AssetImage("assets/images/avatar.png"),
+                    ),
                   ),
                 ],
               ),
